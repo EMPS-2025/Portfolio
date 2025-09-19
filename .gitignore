@@ -1,0 +1,6 @@
+node_modules
+.next
+.DS_Store
+.env*
+
+# Uploaded PDFs should be tracked for demo? keep? We'll ignore? maybe we should keep empty placeholder.
