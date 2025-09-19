@@ -10,7 +10,7 @@ const navItems = [
   { href: '/#process', label: 'Our Process' },
   { href: '/#projects', label: 'Projects' },
   { href: '/contact', label: 'Contact' },
-  { href: '/upload', label: 'Resources' }
+  { href: '/resources', label: 'Resources' }
 ];
 
 export default function Header() {
@@ -21,10 +21,8 @@ export default function Header() {
       <div className="container">
         <nav>
           <Link href="/" className="brand" aria-label="Energyminds Power Solution home">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <Image src="/energy-minds-logo.png" alt="Energyminds logo" width={48} height={48} />
-              <span style={{ fontWeight: 700, letterSpacing: '0.04em' }}>Energyminds</span>
-            </div>
+            <Image src="/energy-minds-logo.png" alt="Energyminds logo" width={52} height={52} priority />
+            <span className="sr-only">Energyminds</span>
           </Link>
           <ul>
             {navItems.map((item) => {
@@ -35,8 +33,9 @@ export default function Header() {
                   <Link
                     href={item.href}
                     style={{
-                      color: isActive ? 'var(--text)' : 'var(--muted)',
-                      fontWeight: isActive ? 600 : 500
+                      color: isActive ? 'var(--text)' : 'rgba(243, 247, 251, 0.75)',
+                      fontWeight: isActive ? 600 : 500,
+                      textShadow: isActive ? '0 0 18px rgba(32, 216, 179, 0.45)' : 'none'
                     }}
                   >
                     {item.label}
