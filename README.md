@@ -26,11 +26,26 @@ SMTP_PASS=secret-password
 
 ## Updating PDFs and Market Collateral
 
+1. Upload the latest tender, statutory, or market update PDFs into `public/documents`.
+2. Register each file in `data/resources.js` (title, description, date, and public path).
+3. Commit and deploy—the site will surface the new files automatically.
+
+### CMS Recommendations
+
+If you prefer updating files without touching the codebase, connect a headless CMS or storage service that exposes a CDN URL:
+
+- **Sanity** or **Contentful** – store PDFs as media assets and query them via GROQ/GraphQL. Fetch the asset list in `data/resources.js` using `fetch()` during build time.
+- **Strapi** – self-hosted option with role-based access. Create a collection type for tenders/updates and use the REST or GraphQL API to populate the Resources section.
+- **Cloud Storage + JSON (e.g., AWS S3 + DynamoDB/Firebase)** – host PDFs on S3 and keep metadata in a small JSON/NoSQL store; the Next.js route can fetch and map the entries without redeploying.
+
+The existing `resourceLibrary` structure is API-ready, so swapping the static array for a CMS `fetch` call will populate both the homepage library and the statutory requirements viewer automatically.
+
 1. Replace or add PDF files to `public/documents`.
 2. Update the metadata in `data/resources.js` to surface new tenders, market updates, or statutory documents.
 3. Deploy the site—no further code changes are required.
 
 For a non-technical workflow consider using a headless CMS such as **Sanity**, **Contentful**, or **Strapi**. Each platform can host media assets and expose them through APIs that can be fetched from the Next.js app.
+main
 
 ## Available Scripts
 
