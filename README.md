@@ -40,6 +40,13 @@ If you prefer updating files without touching the codebase, connect a headless C
 
 The existing `resourceLibrary` structure is API-ready, so swapping the static array for a CMS `fetch` call will populate both the homepage library and the statutory requirements viewer automatically.
 
+1. Replace or add PDF files to `public/documents`.
+2. Update the metadata in `data/resources.js` to surface new tenders, market updates, or statutory documents.
+3. Deploy the site—no further code changes are required.
+
+For a non-technical workflow consider using a headless CMS such as **Sanity**, **Contentful**, or **Strapi**. Each platform can host media assets and expose them through APIs that can be fetched from the Next.js app.
+main
+
 ## Available Scripts
 
 - `npm run dev` – start the development server
